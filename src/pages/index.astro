@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const items = [{"name": "Cuci Kering", "price": "Rp 6.000 / kg", "desc": "Pakaian dicuci bersih dan dikeringkan dengan pewangi tahan lama.", "img": "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=500&q=80", "badge": "HEMAT"}, {"name": "Cuci + Setrika Rapi", "price": "Rp 9.000 / kg", "desc": "Pakaian dicuci, dikeringkan, dan disetrika sampai halus licin.", "img": "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=500&q=80", "badge": "POPULAR"}, {"name": "Express Laundry 6 Jam", "price": "Rp 15.000 / kg", "desc": "Layanan kilat 6 jam selesai untuk pakaian yang buru-buru dipakai.", "img": "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=500&q=80", "badge": "EXPRESS"}];
+---
+
+<Layout title="DiCuciin — Jasa Laundry Praktis & Bersih">
+  <section class="container hero">
+    <div>
+      <h1 class="hero-title">Cucian Numpuk? DiCuciin Aja.</h1>
+      <p class="hero-desc">Serahkan pakaian kotormu kepada kami dan gunakan waktumu untuk hal yang lebih penting. Laundry wangi, bersih, dan rapi.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="#menu" class="btn">Lihat Katalog</a>
+        <a href="#lokasi" class="btn btn-secondary">Informasi Lokasi</a>
+      </div>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=1200&q=80" alt="DICUCIIN Showcase" class="hero-img" />
+    </div>
+  </section>
+
+  <section id="menu" class="section container">
+    <h2 class="section-title">Produk & Layanan Unggulan</h2>
+    <div class="cards-grid">
+      {items.map((item) => (
+        <div class="card">
+          <img src={item.img} alt={item.name} class="card-img" />
+          <div class="card-body">
+            <span class="badge">{item.badge}</span>
+            <h3 class="card-title">{item.name}</h3>
+            <p class="card-desc">{item.desc}</p>
+            <div class="card-footer">
+              <span class="card-price">{item.price}</span>
+              <a href="https://wa.me/?text=Halo%20DICUCIIN,%20saya%20tertarik%20dengan%20" class="btn" style="padding:0.4rem 1rem; font-size:0.85rem;" target="_blank">Pesan</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="lokasi" class="container">
+    <div class="info-box">
+      <h2 class="info-title">Siap Menikmati Layanan DICUCIIN?</h2>
+      <p style="font-size:1.2rem; margin-bottom:2rem; opacity:0.9;">Kunjungi cabang kami atau tanyakan via WhatsApp resmi.</p>
+      <a href="https://wa.me/?text=Halo%20DICUCIIN" class="btn" style="background:#fff; color:var(--accent); font-size:1.1rem; padding:0.9rem 2.2rem;" target="_blank">Hubungi Kami Sekarang</a>
+    </div>
+  </section>
+</Layout>
